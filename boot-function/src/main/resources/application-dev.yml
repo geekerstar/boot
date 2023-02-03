@@ -1,0 +1,153 @@
+#########################################################################
+####                            开发环境                              ####
+#########################################################################
+server:
+  port: 10001
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+  shutdown: graceful
+
+spring:
+  application:
+    # Spring Boot Admin展示的客户端项目名，不设置，会使用自动生成的随机id
+    name: boot
+  boot:
+    admin:
+      client:
+        # Spring Boot Admin 服务端地址
+        instance:
+          metadata:
+            # 客户端端点信息的安全认证信息
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+          service-base-url: "http://localhost:8000/"
+  security:
+    user:
+      name: geekerstar
+      password: geekerstar
+  datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true
+        allow:
+        loginUsername: root
+        loginPassword: root
+    dynamic:
+      druid:
+        initial-size: 5
+        max-active: 30
+        min-idle: 5
+        max-wait: 60000
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 50
+        filters: stat
+        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        use-global-data-source-stat: true
+        web-stat-filter:
+          url-pattern: /*
+          exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      p6spy: true
+      primary: master
+      datasource:
+        master:
+          username: root
+          password: 666666
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://139.155.88.184:13306/geekerstar?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8&allowMultiQueries=true
+  #        slave:
+  #          username: postgres
+  #          password: root
+  #          driver-class-name: org.postgresql.Driver
+  #          url: jdbc:postgresql://127.0.0.1:5432/basic?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8&allowMultiQueries=true
+
+  task:
+    execution:
+      pool:
+        # 最大线程数
+        max-size: 16
+        # 核心线程数
+        core-size: 16
+        # 存活时间
+        keep-alive: 10s
+        # 队列大小
+        queue-capacity: 100
+        # 是否允许核心线程超时
+        allow-core-thread-timeout: true
+      # 线程名称前缀
+      thread-name-prefix: async-task-
+  redis:
+    # Redis数据库索引（默认为 0）
+    database: 0
+    # Redis服务器地址
+    host: 139.155.88.184
+    # Redis服务器连接端口
+    port: 16379
+    # Redis 密码
+    password: geekerstar
+#    password: dyzh20220719!
+#    cluster:
+#      nodes: 47.109.29.188:6371,47.109.29.188:6372,47.109.29.188:6373,47.109.29.188:6374,47.109.29.188:6375,47.109.29.188:6376
+#      max-redirects: 3
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 8
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 500
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-active: 2000
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: 10000
+    # 连接超时时间（毫秒）
+    timeout: 10000
+
+management:
+  endpoint:
+    health:
+      # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+        include: "*"
+      base-path: /actuator
+    enabled-by-default: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+knife4j:
+  enable: true
+  basic:
+    enable: false
+    # Basic认证用户名
+    username: geekerstar
+    # Basic认证密码
+    password: geekerstar
+  openapi:
+    title: Boot接口文档
+    description: ""
+    email: 247507792@qq.com
+    concat: Geekerstar
+    url:
+    version: v1.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      distributed_lock:
+        group-name: 分布式锁
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.function.module.distributed_lock.controller

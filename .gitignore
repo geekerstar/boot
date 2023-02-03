@@ -1,0 +1,4 @@
+# Project exclude paths
+/boot-basic/target/
+/boot-common/target/
+/boot-function/target/
