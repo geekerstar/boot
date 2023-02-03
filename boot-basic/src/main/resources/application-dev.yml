@@ -89,6 +89,11 @@ spring:
         max-wait: 10000
     # 连接超时时间（毫秒）
     timeout: 10000
+  redisson:
+    server-address: ENC(NSYtxeoNdCggAfZVFQ73Q+fX0ovgYYdO)
+    port: ENC(7gJyBWzuLRf2l4igioo5wg==)
+    password: ENC(mGR8ZZiw/oZ+NTdJCyooOoGah4WdSfBW)
+    database: 0
 
 management:
   endpoint:
