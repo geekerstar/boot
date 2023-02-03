@@ -29,9 +29,9 @@ public class JasyptTest extends FunctionApplicationTests {
      */
     @Test
     public void getPass() {
-        String url = encryptor.encrypt("139.155.88.184");
-        String name = encryptor.encrypt("16379");
-        String password = encryptor.encrypt("geekerstar");
+        String url = encryptor.encrypt("");
+        String name = encryptor.encrypt("");
+        String password = encryptor.encrypt("");
         System.out.println("database url: ENC(" + url + ")");
         System.out.println("database name: ENC(" + name + ")");
         System.out.println("database password: ENC(" + password + ")");
