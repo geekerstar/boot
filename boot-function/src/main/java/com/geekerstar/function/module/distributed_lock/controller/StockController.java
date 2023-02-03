@@ -1,6 +1,7 @@
 package com.geekerstar.function.module.distributed_lock.controller;
 
 import com.geekerstar.function.config.log.Weblog;
+import com.geekerstar.function.config.web.Response;
 import com.geekerstar.function.module.distributed_lock.service.StockService;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
@@ -30,8 +31,11 @@ public class StockController {
     @GetMapping("/deduct")
     @ApiOperation(value = "库存扣减")
     @ApiOperationSupport(author = "Geekerstar", order = 1)
-    public String deduct() {
-        stockService.deduct();
-        return "success";
+    public Response<String> deduct() {
+        // 乐观锁
+//        stockService.deductOptimisticLock();
+//        stockService.deductByRedission();
+        stockService.testSemaphore();
+        return Response.success();
     }
 }

@@ -5,6 +5,10 @@ package com.geekerstar.function.module.distributed_lock.service;
  * @date 2023/2/2 17:42
  */
 public interface StockService {
-    void deduct();
+    void deductOptimisticLock();
+
+    void deductByRedission();
+
+    void testSemaphore();
 
 }
