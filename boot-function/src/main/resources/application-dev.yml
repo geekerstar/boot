@@ -152,3 +152,10 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.geekerstar.function.module.distributed_lock.controller
+      transaction:
+        group-name: 事务
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.function.module.transaction.controller
+
+
