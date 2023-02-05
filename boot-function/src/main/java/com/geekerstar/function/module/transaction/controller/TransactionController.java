@@ -34,8 +34,9 @@ public class TransactionController {
     @ApiOperation(value = "事务失效")
     @ApiOperationSupport(author = "Geekerstar", order = 1)
     public Response<String> invalid() {
-//        invalidSameClass.methodNoTransaction();
-        invalidOtherClassNoTransaction.methodNoTransaction();
+        invalidSameClass.methodNoTransaction();
+//        invalidOtherClassNoTransaction.methodNoTransaction();
+//        invalidSameClass.self();
         return Response.success();
     }
 
