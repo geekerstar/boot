@@ -157,5 +157,11 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.geekerstar.function.module.transaction.controller
+      limit:
+        group-name: 限流
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.function.module.limit.controller
+
 
 
