@@ -3,6 +3,7 @@ package com.geekerstar.function.module.limit.controller;
 import com.geekerstar.function.config.log.Weblog;
 import com.geekerstar.function.config.web.Response;
 import com.geekerstar.function.exception.BusinessException;
+import com.geekerstar.function.module.limit.config.RequestLimit;
 import com.geekerstar.function.module.limit.service.case1.CounterLimiter;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
@@ -95,4 +96,13 @@ public class LimitController {
     /**
      * Guava RateLimiter客户端限流 结束
      */
+
+    @RequestLimit(count = 1, time = 1000)
+    @Weblog(description = "Redis限流")
+    @GetMapping("/redis")
+    @ApiOperation(value = "Redis限流")
+    @ApiOperationSupport(author = "Geekerstar", order = 5)
+    public Response<String> redis() {
+        return Response.success();
+    }
 }
