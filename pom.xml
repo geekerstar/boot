@@ -19,6 +19,8 @@
         <module>boot-rabbitmq</module>
         <module>boot-kafka</module>
         <module>boot-function</module>
+        <module>boot-websocket</module>
+        <module>boot-netty</module>
     </modules>
 
     <properties>
