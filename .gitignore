@@ -4,3 +4,5 @@
 /boot-function/target/
 /logs/
 /*/logs/
+/boot-sharding/target/
+/boot-websocket/target/classes/com/geekerstar/websocket/
