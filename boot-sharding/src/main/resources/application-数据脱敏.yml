@@ -42,18 +42,12 @@ spring:
         # md5加密算法-sharding-jdbc内置的算法，这里名称任意
         encryptor_md5:
           type: MD5
-        ## 自定义的加密器
-        encryptor_sha256:
-          type: SHA256
         # aes加密算法-sharding-jdbc内置的算法，这里名称任意
         encryptor_aes:
           type: AES
           props:
             # 设置秘钥，保证不泄露
             aes.key.value: geekerstar
-        ## 自定义的加密器，实现了QueryAssistedEncryptor
-        encryptor_base64:
-          type: Base64_Assisted
       tables:
         # 逻辑表名
         t_user:
@@ -66,7 +60,7 @@ spring:
               # 存储密文的字段
               cipherColumn: cipher_pwd
               # 指定加密器
-              encryptor: encryptor_sha256
+              encryptor: encryptor_md5
             # 身份证号的逻辑列，使用aes这种可逆的加密算法
             id_card:
               cipherColumn: id_card
@@ -74,9 +68,9 @@ spring:
             # 手机号的逻辑列，使用aes这种可逆的加密算法
             mobile:
               cipherColumn: mobile
-              # 指定辅助查询列
-              assistedQueryColumn: mobile_data
-              encryptor: encryptor_base64
+              # 指定明文列
+              plainColumn: mobile_data
+              encryptor: encryptor_aes
     props:
       sql:
         # 日志显示具体的SQL

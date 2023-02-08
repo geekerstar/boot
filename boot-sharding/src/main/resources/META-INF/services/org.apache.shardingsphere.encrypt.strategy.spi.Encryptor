@@ -1,0 +1,3 @@
+com.geekerstar.sharding.module.encrypt.encryptor.Sha256HexEncryptor
+com.geekerstar.sharding.module.encrypt.encryptor.Base64AssistedEncryptor
+com.geekerstar.sharding.module.encrypt.encryptor.Sha256AssistedEncryptor
