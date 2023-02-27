@@ -1,0 +1,20 @@
+#########################################################################
+####                         公共基础配置                              ####
+#########################################################################
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  aop:
+    proxy-target-class: true
+
+#logging:
+#  config: classpath:log4j2-spring.xml
+
+netty:
+  port: 9000
+  host: 127.0.0.1
+
+
