@@ -21,6 +21,7 @@
         <module>boot-function</module>
         <module>boot-websocket</module>
         <module>boot-netty</module>
+        <module>boot-xxljob</module>
     </modules>
 
     <properties>
