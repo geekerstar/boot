@@ -1,4 +1,4 @@
-package com.geekerstar.function.module.design_pattern.ifelse.annotation;
+package com.geekerstar.function.module.design_pattern.ifelse.case1.annotation;
 
 /**
  * @author geekerstar

@@ -1,6 +1,6 @@
-package com.geekerstar.function.module.design_pattern.ifelse;
+package com.geekerstar.function.module.design_pattern.ifelse.case1;
 
-import com.geekerstar.function.module.design_pattern.ifelse.annotation.IPay;
+import com.geekerstar.function.module.design_pattern.ifelse.case1.annotation.IPay;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
