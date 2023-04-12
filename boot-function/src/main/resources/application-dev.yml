@@ -163,5 +163,15 @@ knife4j:
         api-rule-resources:
           - com.geekerstar.function.module.limit.controller
 
-
+xxl:
+  job:
+    admin:
+      addresses: http://172.201.10.49:19080/xxl-job-admin
+    executor:
+      appname: apiClean
+      ip: 172.201.10.49
+      port: 9999
+      logpath: /home/inspur/project/humix/datasource
+      logretentiondays: 30
+    accessToken: default_token
 
