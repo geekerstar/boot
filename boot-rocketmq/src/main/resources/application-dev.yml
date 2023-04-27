@@ -1,0 +1,139 @@
+#########################################################################
+####                            开发环境                              ####
+#########################################################################
+server:
+  port: 10000
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+  shutdown: graceful
+
+spring:
+  application:
+    # Spring Boot Admin展示的客户端项目名，不设置，会使用自动生成的随机id
+    name: boot
+  boot:
+    admin:
+      client:
+        # Spring Boot Admin 服务端地址
+        instance:
+          metadata:
+            # 客户端端点信息的安全认证信息
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+          service-base-url: "http://localhost:8000/"
+  security:
+    user:
+      name: geekerstar
+      password: geekerstar
+  datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true
+        allow:
+        loginUsername: root
+        loginPassword: root
+    dynamic:
+      druid:
+        initial-size: 5
+        max-active: 30
+        min-idle: 5
+        max-wait: 60000
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 50
+        filters: stat
+        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        use-global-data-source-stat: true
+        web-stat-filter:
+          url-pattern: /*
+          exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      p6spy: true
+      primary: master
+      datasource:
+        master:
+          username: ENC(VxoPLOLGEj0KivuR285oVQ==)
+          password: ENC(GMV1d0IApVc9Vw5z55FyBQ==)
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: ENC(/EXoE527AyabkK/mvQ2xnaL95LuJT3aWpEhjxcAc1fQlUiJHlGxzMa2oUIgE/opLbT3nGHUaAwVVDDOCZL5bQxcNCAD1pSxzewNEzXyC6yLtuy73mriCo+spAGas96mF14aTr2d7tvR9CgbosblGUtDyzhb/r9lzh+mhlKGQchOm/a9eUwpAKWhxCPKRH6uedGDtEzS1vU8=)
+  #        slave:
+  #          username: postgres
+  #          password: root
+  #          driver-class-name: org.postgresql.Driver
+  #          url: jdbc:postgresql://127.0.0.1:5432/basic?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8&allowMultiQueries=true
+
+  redis:
+    # Redis数据库索引（默认为 0）
+    database: 0
+    # Redis服务器地址
+    host: ENC(NSYtxeoNdCggAfZVFQ73Q+fX0ovgYYdO)
+    # Redis服务器连接端口
+    port: ENC(7gJyBWzuLRf2l4igioo5wg==)
+    # Redis 密码
+    password: ENC(mGR8ZZiw/oZ+NTdJCyooOoGah4WdSfBW)
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 8
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 500
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-active: 2000
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: 10000
+    # 连接超时时间（毫秒）
+    timeout: 10000
+  redisson:
+    server-address: ENC(NSYtxeoNdCggAfZVFQ73Q+fX0ovgYYdO)
+    port: ENC(7gJyBWzuLRf2l4igioo5wg==)
+    password: ENC(mGR8ZZiw/oZ+NTdJCyooOoGah4WdSfBW)
+    database: 0
+
+management:
+  endpoint:
+    health:
+      # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+        include: "*"
+      base-path: /actuator
+    enabled-by-default: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+knife4j:
+  enable: true
+  basic:
+    enable: false
+    # Basic认证用户名
+    username: geekerstar
+    # Basic认证密码
+    password: geekerstar
+  openapi:
+    title: Boot接口文档
+    description: ""
+    email: 247507792@qq.com
+    concat: Geekerstar
+    url:
+    version: v1.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      sample:
+        group-name: 模板案例
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.basic.module.sample.controller
