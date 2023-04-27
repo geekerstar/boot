@@ -136,4 +136,14 @@ knife4j:
         group-name: 模板案例
         api-rule: package
         api-rule-resources:
-          - com.geekerstar.basic.module.sample.controller
+          - com.geekerstar.rocketmq.module.sample.controller
+      rocketmq:
+        group-name: rocketmq
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.rocketmq.module.rocket.controller
+
+rocketmq:
+  name-server: http://127.0.0.1:9876
+  producer:
+    group: defaultGroup
