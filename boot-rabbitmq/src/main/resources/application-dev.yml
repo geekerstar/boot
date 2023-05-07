@@ -68,7 +68,7 @@ spring:
   #          driver-class-name: org.postgresql.Driver
   #          url: jdbc:postgresql://127.0.0.1:5432/basic?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8&allowMultiQueries=true
   rabbitmq:
-    host: 139.155.88.184
+    host: 127.0.0.1
     port: 5672
     username: root
     password: 210819
