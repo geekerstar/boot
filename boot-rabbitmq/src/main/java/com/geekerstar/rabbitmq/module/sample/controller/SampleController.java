@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,11 +21,13 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-@RequestMapping("/sample")
-@Api(tags = "模板案例")
+@RequestMapping("/rabbitmq")
+@Api(tags = "rabbitMQ")
 @RequiredArgsConstructor
 @ApiSupport(author = "Geekerstar", order = 1)
 public class SampleController {
+
+    private final RabbitTemplate rabbitTemplate;
 
     @Weblog(description = "GET方法")
     @GetMapping("/get")
@@ -52,5 +55,19 @@ public class SampleController {
     ) {
         log.info("POST请求：{}", sample.getId());
         return Response.success(sample.getId());
+    }
+
+    @Weblog(description = "发送消息")
+    @GetMapping("/message")
+    @ApiOperation(value = "发送消息")
+    @ApiOperationSupport(author = "Geekerstar", order = 1)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "message", value = "消息", paramType = "query", readOnly = true)
+    })
+    public Response<String> message(
+            @RequestParam String message
+    ) {
+        rabbitTemplate.convertAndSend("directExchange", "directRouting", message);
+        return Response.success();
     }
 }
