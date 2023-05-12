@@ -63,7 +63,7 @@ spring:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: ENC(/EXoE527AyabkK/mvQ2xnaL95LuJT3aWpEhjxcAc1fQlUiJHlGxzMa2oUIgE/opLbT3nGHUaAwVVDDOCZL5bQxcNCAD1pSxzewNEzXyC6yLtuy73mriCo+spAGas96mF14aTr2d7tvR9CgbosblGUtDyzhb/r9lzh+mhlKGQchOm/a9eUwpAKWhxCPKRH6uedGDtEzS1vU8=)
         tdengine:
-          url: jdbc:TAOS://172.201.10.76:6030/iot?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
+          url: jdbc:TAOS://172.201.10.76:6030/car?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
           username: root
           password: taosdata
           driver-class-name: com.taosdata.jdbc.TSDBDriver
