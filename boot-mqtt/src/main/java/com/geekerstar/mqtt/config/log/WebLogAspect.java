@@ -1,4 +1,4 @@
-package com.geekerstar.basic.config.log;
+package com.geekerstar.mqtt.config.log;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ public class WebLogAspect {
     /**
      * 以自定义 @WebLog 注解为切点
      */
-    @Pointcut("@annotation(com.geekerstar.*.config.log.Weblog)")
+    @Pointcut("@annotation(com.geekerstar.mqtt.config.log.Weblog)")
     public void webLog() {
     }
 

@@ -1,6 +1,6 @@
-package com.geekerstar.basic.runner;
+package com.geekerstar.mqtt.runner;
 
-import com.geekerstar.basic.util.NetUtil;
+import com.geekerstar.mqtt.util.NetUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
