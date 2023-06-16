@@ -23,6 +23,7 @@
         <module>boot-netty</module>
         <module>boot-tdengine</module>
         <module>boot-mqtt</module>
+        <module>boot-starrocks</module>
     </modules>
 
     <properties>
