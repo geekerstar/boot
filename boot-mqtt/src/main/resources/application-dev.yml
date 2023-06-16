@@ -1,0 +1,193 @@
+#########################################################################
+####                            开发环境                              ####
+#########################################################################
+server:
+  port: 10000
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+  shutdown: graceful
+
+spring:
+  application:
+    # Spring Boot Admin展示的客户端项目名，不设置，会使用自动生成的随机id
+    name: boot
+  boot:
+    admin:
+      client:
+        # Spring Boot Admin 服务端地址
+        instance:
+          metadata:
+            # 客户端端点信息的安全认证信息
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+          service-base-url: "http://localhost:8000/"
+  security:
+    user:
+      name: geekerstar
+      password: geekerstar
+  datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true
+        allow:
+        loginUsername: root
+        loginPassword: root
+    dynamic:
+      druid:
+        initial-size: 5
+        max-active: 30
+        min-idle: 5
+        max-wait: 60000
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 50
+        filters: stat
+        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        use-global-data-source-stat: true
+        web-stat-filter:
+          url-pattern: /*
+          exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      p6spy: true
+      primary: master
+      datasource:
+        master:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/geekerstar?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+  #        slave:
+  #          username: postgres
+  #          password: root
+  #          driver-class-name: org.postgresql.Driver
+  #          url: jdbc:postgresql://127.0.0.1:5432/basic?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8&allowMultiQueries=true
+
+  redis:
+    # Redis数据库索引（默认为 0）
+    database: 0
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis 密码
+    password: geekerstar
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 8
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 500
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-active: 2000
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: 10000
+    # 连接超时时间（毫秒）
+    timeout: 10000
+  redisson:
+    server-address: 127.0.0.1
+    port: 6379
+    password: geekerstar
+    database: 0
+
+management:
+  endpoint:
+    health:
+      # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+        include: "*"
+      base-path: /actuator
+    enabled-by-default: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+knife4j:
+  enable: true
+  basic:
+    enable: false
+    # Basic认证用户名
+    username: geekerstar
+    # Basic认证密码
+    password: geekerstar
+  openapi:
+    title: Boot接口文档
+    description: ""
+    email: 247507792@qq.com
+    concat: Geekerstar
+    url:
+    version: v1.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      sample:
+        group-name: 模板案例
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.basic.module.sample.controller
+
+mqtt:
+  server:
+    enabled: true               # 是否开启服务端，默认：true
+    #    ip: 0.0.0.0                # 服务端 ip 默认为空，0.0.0.0，建议不要设置
+    port: 1883                  # 端口，默认：1883
+    name: mqtt      # 名称，默认：Mica-Mqtt-Server
+    buffer-allocator: HEAP      # 堆内存和堆外内存，默认：堆内存
+    heartbeat-timeout: 120000   # 心跳超时，单位毫秒，默认: 1000 * 120
+    read-buffer-size: 8KB       # 接收数据的 buffer size，默认：8k
+    max-bytes-in-message: 10MB  # 消息解析最大 bytes 长度，默认：10M
+    auth:
+      enable: true             # 是否开启 mqtt 认证
+      username: admin            # mqtt 认证用户名
+      password: admin            # mqtt 认证密码
+    debug: true                 # 如果开启 prometheus 指标收集建议关闭
+    stat-enable: true           # 开启指标收集，debug 和 prometheus 开启时需要打开，默认开启，关闭节省内存
+    web-port: 8083              # http、websocket 端口，默认：8083
+    websocket-enable: true      # 是否开启 websocket，默认： true
+    http-enable: false          # 是否开启 http api，默认： false
+    http-basic-auth:
+      enable: false             # 是否开启 http basic auth，默认： false
+      username: admin            # http basic auth 用户名
+      password: admin            # http basic auth 密码
+    ssl:                        # mqtt tcp ssl 认证
+      enabled: false            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
+      keystore-path:            # 必须参数：ssl keystore 目录，支持 classpath:/ 路径。
+      keystore-pass:            # 必选参数：ssl keystore 密码
+      truststore-path:          # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
+      truststore-pass:          # 可选参数：ssl 双向认证 truststore 密码
+      client-auth: none         # 是否需要客户端认证（双向认证），默认：NONE（不需要）
+  client:
+    enabled: true               # 是否开启客户端，默认：true
+    ip: 127.0.0.1               # 连接的服务端 ip ，默认：127.0.0.1
+    port: 1883                  # 端口：默认：1883
+    name: client     # 名称，默认：Mica-Mqtt-Client
+    clientId: client            # 客户端Id（非常重要，一般为设备 sn，不可重复）
+    user-name: admin             # 认证的用户名
+    password: admin            # 认证的密码
+    timeout: 5                  # 超时时间，单位：秒，默认：5秒
+    reconnect: true             # 是否重连，默认：true
+    re-interval: 5000           # 重连时间，默认 5000 毫秒
+    version: mqtt_3_1_1         # mqtt 协议版本，可选 MQTT_3_1、mqtt_3_1_1、mqtt_5，默认：mqtt_3_1_1
+    read-buffer-size: 8KB       # 接收数据的 buffer size，默认：8k
+    max-bytes-in-message: 10MB  # 消息解析最大 bytes 长度，默认：10M
+    buffer-allocator: heap      # 堆内存和堆外内存，默认：堆内存
+    keep-alive-secs: 60         # keep-alive 时间，单位：秒
+    clean-session: true         # mqtt clean session，默认：true
+    ssl:
+      enabled: false            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
+      keystore-path:            # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
+      keystore-pass:            # 可选参数：ssl 双向认证 keystore 密码
+      truststore-path:          # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
+      truststore-pass:          # 可选参数：ssl 双向认证 truststore 密码

@@ -58,10 +58,10 @@ spring:
       primary: master
       datasource:
         master:
-          username: ENC(VxoPLOLGEj0KivuR285oVQ==)
-          password: ENC(GMV1d0IApVc9Vw5z55FyBQ==)
+          username: root
+          password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: ENC(/EXoE527AyabkK/mvQ2xnaL95LuJT3aWpEhjxcAc1fQlUiJHlGxzMa2oUIgE/opLbT3nGHUaAwVVDDOCZL5bQxcNCAD1pSxzewNEzXyC6yLtuy73mriCo+spAGas96mF14aTr2d7tvR9CgbosblGUtDyzhb/r9lzh+mhlKGQchOm/a9eUwpAKWhxCPKRH6uedGDtEzS1vU8=)
+          url: jdbc:mysql://127.0.0.1:3306/geekerstar?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
   #        slave:
   #          username: postgres
   #          password: root
@@ -82,11 +82,11 @@ spring:
     # Redis数据库索引（默认为 0）
     database: 0
     # Redis服务器地址
-    host: ENC(NSYtxeoNdCggAfZVFQ73Q+fX0ovgYYdO)
+    host: 127.0.0.1
     # Redis服务器连接端口
-    port: ENC(7gJyBWzuLRf2l4igioo5wg==)
+    port: 6379
     # Redis 密码
-    password: ENC(mGR8ZZiw/oZ+NTdJCyooOoGah4WdSfBW)
+    password: geekerstar
     lettuce:
       pool:
         # 连接池中的最小空闲连接 默认 0
@@ -100,9 +100,9 @@ spring:
     # 连接超时时间（毫秒）
     timeout: 10000
   redisson:
-    server-address: ENC(NSYtxeoNdCggAfZVFQ73Q+fX0ovgYYdO)
-    port: ENC(7gJyBWzuLRf2l4igioo5wg==)
-    password: ENC(mGR8ZZiw/oZ+NTdJCyooOoGah4WdSfBW)
+    server-address: 127.0.0.1
+    port: 6379
+    password: geekerstar
     database: 0
 
 management:

@@ -1,8 +1,9 @@
 package com.geekerstar.basic.config.mybatis_plus;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * @author geekerstar
@@ -11,10 +12,16 @@ import java.util.Collection;
 public interface ExpandBaseMapper<T> extends BaseMapper<T> {
 
     /**
-     * 批量插入 仅适用于mysql
+     * 全字段更新，不会忽略null值
      *
-     * @param entityList 实体列表
-     * @return 影响行数
+     * @param entity 实体对象
      */
-    Integer insertBatchSomeColumn(Collection<T> entityList);
+    int alwaysUpdateSomeColumnById(@Param("et") T entity);
+
+    /**
+     * 全量插入,等价于insert
+     *
+     * @param entityList 实体集合
+     */
+    int insertBatchSomeColumn(List<T> entityList);
 }

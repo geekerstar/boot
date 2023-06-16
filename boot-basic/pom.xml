@@ -18,12 +18,6 @@
     </properties>
 
     <dependencies>
-        <!--组件-->
-        <dependency>
-            <groupId>com.geekerstar</groupId>
-            <artifactId>boot-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--基础工具包-->
         <dependency>
             <groupId>cn.hutool</groupId>

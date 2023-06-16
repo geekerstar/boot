@@ -1,6 +1,6 @@
 package com.geekerstar.basic.runner;
 
-import com.geekerstar.common.util.NetUtil;
+import com.geekerstar.basic.util.NetUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +8,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
-
 
 /**
  * @author geekerstar

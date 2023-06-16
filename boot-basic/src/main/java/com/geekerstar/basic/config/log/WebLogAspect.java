@@ -34,7 +34,7 @@ public class WebLogAspect {
     /**
      * 以自定义 @WebLog 注解为切点
      */
-    @Pointcut("@annotation(com.geekerstar.basic.config.log.Weblog)")
+    @Pointcut("@annotation(com.geekerstar.*.config.log.Weblog)")
     public void webLog() {
     }
 
