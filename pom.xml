@@ -24,6 +24,7 @@
         <module>boot-tdengine</module>
         <module>boot-mqtt</module>
         <module>boot-starrocks</module>
+        <module>boot-flink</module>
     </modules>
 
     <properties>
