@@ -1,8 +1,8 @@
 package com.geekerstar.starrocks.config.web;
 
-import com.geekerstar.basic.constant.CommonConstant;
-import com.geekerstar.basic.exception.BusinessException;
-import com.geekerstar.basic.exception.CommonException;
+import com.geekerstar.starrocks.constant.CommonConstant;
+import com.geekerstar.starrocks.exception.BusinessException;
+import com.geekerstar.starrocks.exception.CommonException;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
