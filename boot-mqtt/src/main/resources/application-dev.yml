@@ -136,7 +136,7 @@ knife4j:
         group-name: 模板案例
         api-rule: package
         api-rule-resources:
-          - com.geekerstar.basic.module.sample.controller
+          - com.geekerstar.*.module.sample.controller
 
 mqtt:
   server:
@@ -161,13 +161,13 @@ mqtt:
       enable: false             # 是否开启 http basic auth，默认： false
       username: admin            # http basic auth 用户名
       password: admin            # http basic auth 密码
-    ssl:                        # mqtt tcp ssl 认证
-      enabled: false            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
-      keystore-path:            # 必须参数：ssl keystore 目录，支持 classpath:/ 路径。
-      keystore-pass:            # 必选参数：ssl keystore 密码
-      truststore-path:          # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
-      truststore-pass:          # 可选参数：ssl 双向认证 truststore 密码
-      client-auth: none         # 是否需要客户端认证（双向认证），默认：NONE（不需要）
+    ssl:
+      enabled: true            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
+      keystore-path: classPath:/cert/server.jks           # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
+      keystore-pass: admin           # 可选参数：ssl 双向认证 keystore 密码
+      truststore-path: classPath:/cert/server.jks             # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
+      truststore-pass: admin         # 可选参数：ssl 双向认证 truststore 密码
+      client-auth: NONE         # 是否需要客户端认证（双向认证），默认：NONE（不需要）
   client:
     enabled: true               # 是否开启客户端，默认：true
     ip: 127.0.0.1               # 连接的服务端 ip ，默认：127.0.0.1
@@ -186,8 +186,8 @@ mqtt:
     keep-alive-secs: 60         # keep-alive 时间，单位：秒
     clean-session: true         # mqtt clean session，默认：true
     ssl:
-      enabled: false            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
-      keystore-path:            # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
-      keystore-pass:            # 可选参数：ssl 双向认证 keystore 密码
-      truststore-path:          # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
-      truststore-pass:          # 可选参数：ssl 双向认证 truststore 密码
+      enabled: true            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
+      keystore-path: classPath:/cert/server.jks           # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
+      keystore-pass: admin           # 可选参数：ssl 双向认证 keystore 密码
+      truststore-path: classPath:/cert/server.jks           # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
+      truststore-pass: admin         # 可选参数：ssl 双向认证 truststore 密码

@@ -1,4 +1,4 @@
-package com.geekerstar.mqtt.module.mqtt.service;
+package com.geekerstar.mqtt.module.mqtt.server;
 
 import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.spring.server.event.MqttClientOfflineEvent;

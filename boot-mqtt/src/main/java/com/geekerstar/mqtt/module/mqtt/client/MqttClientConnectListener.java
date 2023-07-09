@@ -1,4 +1,4 @@
-package com.geekerstar.mqtt.module.mqtt.service;
+package com.geekerstar.mqtt.module.mqtt.client;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
