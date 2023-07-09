@@ -25,6 +25,7 @@
         <module>boot-mqtt</module>
         <module>boot-starrocks</module>
         <module>boot-flink</module>
+        <module>boot-flowable</module>
     </modules>
 
     <properties>
