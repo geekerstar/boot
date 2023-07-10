@@ -43,7 +43,7 @@ distinguished_name     = req_distinguished_name
 prompt                 = no
 [ req_distinguished_name ]
  O                      = $PROJECT_NAME
- CN                     = 192.168.0.103
+ CN                     = 172.201.42.24
 EOF
 
 
@@ -54,7 +54,7 @@ distinguished_name     = req_distinguished_name
 prompt                 = no
 [ req_distinguished_name ]
  O                      = $PROJECT_NAME Device Certificate
- CN                     = 192.168.0.103
+ CN                     = 172.201.42.24
 EOF
 
 

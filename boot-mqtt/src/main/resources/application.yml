@@ -29,8 +29,4 @@ mybatis-plus:
     db-config:
       select-strategy: not_empty
 
-# jasypt加密的密匙 -Djasypt.encryptor.password=Y6M9fAJQdU7jNp5MW
-jasypt:
-  encryptor:
-    password: Y6M9fAJQdU7jNp5MW
 

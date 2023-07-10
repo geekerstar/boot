@@ -163,9 +163,9 @@ mqtt:
       password: admin            # http basic auth 密码
     ssl:
       enabled: true            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
-      keystore-path: classPath:/cert/server.jks           # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
+      keystore-path: classpath:cert/win/server.jks       # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
       keystore-pass: admin           # 可选参数：ssl 双向认证 keystore 密码
-      truststore-path: classPath:/cert/server.jks             # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
+      truststore-path: classpath:cert/win/server.jks     # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
       truststore-pass: admin         # 可选参数：ssl 双向认证 truststore 密码
       client-auth: NONE         # 是否需要客户端认证（双向认证），默认：NONE（不需要）
   client:
@@ -187,7 +187,7 @@ mqtt:
     clean-session: true         # mqtt clean session，默认：true
     ssl:
       enabled: true            # 是否开启 ssl 认证，2.1.0 开始支持双向认证
-      keystore-path: classPath:/cert/server.jks           # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
+      keystore-path: classpath:cert/win/server.jks      # 可选参数：ssl 双向认证 keystore 目录，支持 classpath:/ 路径。
       keystore-pass: admin           # 可选参数：ssl 双向认证 keystore 密码
-      truststore-path: classPath:/cert/server.jks           # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
+      truststore-path: classpath:cert/win/server.jks    # 可选参数：ssl 双向认证 truststore 目录，支持 classpath:/ 路径。
       truststore-pass: admin         # 可选参数：ssl 双向认证 truststore 密码
