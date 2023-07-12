@@ -220,6 +220,12 @@
             <version>5.5.13.3</version>
         </dependency>
 
+        <!--modbus4j-->
+        <dependency>
+            <groupId>com.infiniteautomation</groupId>
+            <artifactId>modbus4j</artifactId>
+            <version>3.0.3</version>
+        </dependency>
     </dependencies>
 
     <build>
