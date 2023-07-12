@@ -1,6 +1,8 @@
 package com.geekerstar.common.util;
 
-import lombok.extern.slf4j.Slf4j;
+
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -16,8 +18,9 @@ import java.util.zip.InflaterInputStream;
  * Created by 大雪冬至 on 2021/9/15.
  * JDK - ZLib 压缩算法工具类
  */
-@Slf4j
 public class ZlibUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(ZlibUtil.class);
 
     public static void main(String[] args) {
         String content = "{\"Id\":\"ems00002\",\"Tp\":\"data\",\"Ac\":\"5\",\"Na\":\"Protector01\",\"Sn\":\"10008\",\"Pr\":\"modbus/rtu\",\"Sa\":0,\"Ts\":1664313146,\"Dt\":[{\"K\":\"7532\",\"V\":\"32\"},],\"Fd\":50}";
