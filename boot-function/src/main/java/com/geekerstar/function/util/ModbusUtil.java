@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * @author geekerstar
  * @date 2023/7/12 10:28
+ * https://www.cnblogs.com/ioufev/p/10831289.html
  */
 @Slf4j
 public class ModbusUtil {
