@@ -25,6 +25,15 @@ import java.util.List;
 /**
  * @author geekerstar
  * @date 2023/7/13 11:27
+ *
+ * Modbus Poll/Slave 模拟器使用教程
+ * https://blog.csdn.net/qq_35029061/article/details/125865898
+ *
+ * 【工具使用】Modbus Poll软件使用详解
+ * https://blog.csdn.net/u012749085/article/details/125270869
+ *
+ * java代码配置连接OPCUA
+ * https://www.jianshu.com/p/c3cb55221908
  */
 @Slf4j
 public class OpcUaUtil {
