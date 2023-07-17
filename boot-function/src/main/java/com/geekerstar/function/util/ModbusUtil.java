@@ -1,6 +1,3 @@
-/*
- * Copyright (c) emfuture, 2023, Emfuture Technology Co.,Ltd. All rights reserved.
- */
 package com.geekerstar.function.util;
 
 import com.serotonin.modbus4j.BatchRead;

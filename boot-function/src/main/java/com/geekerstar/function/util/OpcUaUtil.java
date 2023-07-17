@@ -1,6 +1,3 @@
-/*
- * Copyright (c) emfuture, 2023, Emfuture Technology Co.,Ltd. All rights reserved.
- */
 package com.geekerstar.function.util;
 
 import lombok.extern.slf4j.Slf4j;
