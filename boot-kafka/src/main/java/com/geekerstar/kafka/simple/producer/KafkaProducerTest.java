@@ -9,7 +9,7 @@ public class KafkaProducerTest {
         // TODO 配置属性集合
         Map<String, Object> configMap = new HashMap<>();
         // TODO 配置属性：Kafka服务器集群地址
-        configMap.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        configMap.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.201.10.123:9092");
         // TODO 配置属性：Kafka生产的数据为KV对，所以在生产数据进行传输前需要分别对K,V进行对应的序列化操作
         configMap.put(
                 ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
