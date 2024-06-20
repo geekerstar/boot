@@ -48,3 +48,28 @@ spring:
       default-topic: "test"
 server:
   port: 9999
+
+knife4j:
+  enable: true
+  basic:
+    enable: false
+    # Basic认证用户名
+    username: geekerstar
+    # Basic认证密码
+    password: geekerstar
+  openapi:
+    title: Boot接口文档
+    description: ""
+    email: 247507792@qq.com
+    concat: Geekerstar
+    url:
+    version: v1.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      kafka:
+        group-name: Kafka
+        api-rule: package
+        api-rule-resources:
+          - com.geekerstar.kafka.controller
