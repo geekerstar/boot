@@ -26,7 +26,7 @@ public class TopicTest {
     public void test1() {
         // TODO 配置对象
         Map<String, Object> configMap = new HashMap<>();
-        configMap.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "172.201.10.123:9092");
+        configMap.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 
         // TODO 创建管理者对象
         final Admin admin = Admin.create(configMap);
