@@ -16,7 +16,7 @@ public class KafkaProducerIdemTest {
 
         // TODO 创建配置对象
         Map<String, Object> configMap = new HashMap<>();
-        configMap.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        configMap.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.201.10.123:9092");
         // TODO 对生产的数据K, V进行序列化的操作
         configMap.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configMap.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
